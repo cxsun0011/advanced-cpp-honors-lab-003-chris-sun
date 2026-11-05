@@ -257,7 +257,7 @@ bool AVLTree<Key, Value, Compare>::validate(const Node* n, const Key* lo,
     if (!validate(n->right, &n->key, hi, rightHeight))
         return false;
 
-    if (std::abs(leftHeight - rightHeight) > 1)
+    if ((leftHeight - rightHeight) > 1 || (rightHeight - leftHeight)> 1)
         return false;
 
     computedHeight = 1 + std::max(leftHeight, rightHeight);
